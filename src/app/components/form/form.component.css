@@ -1,0 +1,14 @@
+form {
+  min-height: 60%;
+}
+
+.input-container {
+  min-width: 75%;
+}
+
+.add-button {
+  margin: 5vh;
+  background-color: #FF4081;
+  height: 100px;
+  width: 100px;
+}

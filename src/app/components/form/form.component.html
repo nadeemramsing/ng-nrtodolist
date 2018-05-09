@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" fxLayout="column" fxLayoutAlign="center center">
+
+  <md-input-container class="input-container">
+    <input mdInput formControlName="title" placeholder="Enter a title" name="title">
+  </md-input-container>
+
+  <md-input-container class="input-container">
+    <input mdInput formControlName="description" placeholder="Enter a description" name="description">
+  </md-input-container>
+
+  <div class="input-container" fxLayout="row" fxLayoutAlign="space-between center">
+    <md-input-container>
+      <input mdInput formControlName="date" [mdDatepicker]="dateView" placeholder="Choose a date">
+      <md-datepicker-toggle mdSuffix [for]="dateView"></md-datepicker-toggle>
+      <!-- Works in new version 2.0.0-beta.10 -->
+      <!-- <button mdSuffix [mdDatepickerToggle]="dateView"></button> -->
+      <md-datepicker #dateView (selectedChanged)="passDate($event)"></md-datepicker>
+    </md-input-container>
+    <section>
+      <md-checkbox formControlName="isDone" name="isDone">Done</md-checkbox>
+    </section>
+  </div>
+  {{formGroup.value | json}}
+
+  <button type="button" class="add-button" *ngIf="!isEdit" md-fab (click)="0"> 
+    <md-icon>add</md-icon>
+  </button>
+  <button type="button" class="add-button" *ngIf="isEdit" md-fab (click)="editTask()"> 
+    <md-icon>edit</md-icon>
+  </button>
+
+</form>

@@ -1,0 +1,29 @@
+<md-table #table [dataSource]="dataSource" mdSort mdSortDisableClear="true">
+  
+    <ng-container mdColumnDef="title">
+      <md-header-cell *mdHeaderCellDef md-sort-header> Title </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.title}} </md-cell>
+    </ng-container>
+  
+    <ng-container mdColumnDef="description">
+      <md-header-cell *mdHeaderCellDef md-sort-header> Description </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.description}} </md-cell>
+    </ng-container>
+  
+    <ng-container mdColumnDef="date">
+      <md-header-cell *mdHeaderCellDef md-sort-header> Date </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.date}} </md-cell>
+    </ng-container>
+  
+    <ng-container mdColumnDef="isDone">
+      <md-header-cell *mdHeaderCellDef md-sort-header> Done? </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.isDone}} </md-cell>
+    </ng-container>
+  
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  
+  </md-table>
+  
+  <md-paginator #paginator [length]="length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></md-paginator>
+  

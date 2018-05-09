@@ -1,0 +1,41 @@
+.input-container,
+.list {
+  min-width: 75%;
+}
+
+.list {
+  margin-top: 15px;
+  border: 5px solid;
+  border-radius: 5px;
+  border-color: rgba(255, 255, 255, .12);
+  height: 500px;
+  overflow-y: overlay;
+  /* overlay: does not move content */
+}
+
+
+/* Styling scrollbar for specific element */
+
+.list::-webkit-scrollbar {
+  display: none;
+  /* width: 0px;  */
+  /* remove scrollbar space */
+}
+
+.list-item {
+  width: 100%;
+  cursor: pointer;
+}
+
+.add-button {
+  background-color: #FF4081;
+}
+
+md-divider {
+  min-width: 100%;
+  border-top-width: 5px;
+}
+
+[hidden] {
+  display: none;
+}

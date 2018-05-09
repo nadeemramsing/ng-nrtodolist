@@ -1,0 +1,28 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+.sidenav-container md-sidenav {
+    min-width: 20vw;
+}
+
+.sidenav-content {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.toggle-button {
+    margin: 0.5%;
+}
+
+/* .active:hover {
+    color: #252525;
+    font-weight: bolder;
+} */
+
+.active {
+    color: #252525;
+    font-size: 18px;
+    font-weight: bolder;
+}

@@ -1,0 +1,33 @@
+<md-sidenav-container class="sidenav-container">
+    <md-sidenav #sidenav mode="side" align="end">
+      <!-- mode: over | push | side -->
+      <md-nav-list>
+        <!-- routerLinkActive: Lets you add a CSS class to an element when the link's route becomes active.-->
+        <!-- Using children -->
+        <a md-list-item [routerLink]="['list']" routerLinkActive="active">List</a><!-- "['/home/list']" also works -->
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['form']" routerLinkActive="active">Form</a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['details']" routerLinkActive="active">Details</a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['table']" routerLinkActive="active">Dummy Table</a>
+        <md-divider></md-divider>
+  
+  
+        <!-- Using outlet -->
+        <!-- <a md-list-item [routerLink]="[{outlets: {left:'list'}}]" routerLinkActive="active">List</a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="[{outlets: {left:'form'}}]" routerLinkActive="active">Form</a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="[{outlets: {left:'table'}}]" routerLinkActive="active">Table</a>
+        <md-divider></md-divider> -->
+      </md-nav-list>
+    </md-sidenav>
+    <div fxLayout="row" fxLayoutAlign="end start">
+      <button class="toggle-button" md-fab (click)="sidenav.toggle()">
+        <md-icon *ngIf="!sidenav.opened">chevron_left</md-icon>
+        <md-icon *ngIf="sidenav.opened">chevron_right</md-icon>
+      </button>
+    </div>
+    <router-outlet></router-outlet>
+  </md-sidenav-container>

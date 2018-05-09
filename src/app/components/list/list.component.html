@@ -1,0 +1,46 @@
+<form name="listForm" fxLayout="column" fxLayoutAlign="center center">
+  <md-input-container class="input-container">
+    <!-- material2 2.0.0-beta.10: md-input-container renamed to md-form-field (while still being backwards compatible) -->
+    <!-- Current version: 2.0.0-beta.8 => md-form-field won't work -->
+    <input mdInput #task placeholder="Enter task">
+  </md-input-container>
+
+  <button type="button" class="add-button" md-fab (click)="addTask(task.value); task.value = ''"> 
+      <md-icon>add</md-icon>
+  </button>
+
+  <md-list class="list" fxLayout="column" fxLayoutAlign="start center">
+
+    <ng-container *ngFor="let t of list | async; let i = index">
+      <md-list-item class="list-item">
+        <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+          <span [hidden]="t.isEdit" (click)="openTask(t)">
+            {{t.description}}
+          </span>
+
+          <md-input-container fxFlex="85" [hidden]="!t.isEdit">
+            <input mdInput [(ngModel)]="t.description" [ngModelOptions]="{standalone: true}">
+            <!-- To use [(ngModel)], MUST import FormsModule -->
+            <!-- When using [(ngModel)] in form, must either
+            1) set name="taskDesc" => connected to form in which it is.
+            2) set [ngModelOptions]="{standalone: true}"
+           -->
+          </md-input-container>
+
+          <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-around center">
+            <button type="button" class="edit-button" [hidden]="t.isEdit" md-mini-fab (click)="t.isEdit = true"> 
+              <md-icon>edit</md-icon>
+            </button>
+            <button type="button" class="tick-button" [hidden]="!t.isEdit" md-mini-fab (click)="editTask(t); t.isEdit = false"> 
+              <md-icon>done</md-icon>
+            </button>
+            <button type="button" class="delete-button" md-mini-fab (click)="deleteTask(t)"> 
+              <md-icon>delete</md-icon>
+            </button>
+          </div>
+        </div>
+      </md-list-item>
+      <md-divider *ngIf="i !== listLength  - 1"></md-divider>
+    </ng-container>
+  </md-list>
+</form>

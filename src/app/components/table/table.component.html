@@ -1,0 +1,28 @@
+<md-table #table [dataSource]="dataSource" mdSort mdSortDisableClear="true">
+
+  <ng-container mdColumnDef="position">
+    <md-header-cell *mdHeaderCellDef md-sort-header> No. </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
+  </ng-container>
+
+  <ng-container mdColumnDef="name">
+    <md-header-cell *mdHeaderCellDef md-sort-header> Name </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
+  </ng-container>
+
+  <ng-container mdColumnDef="weight">
+    <md-header-cell *mdHeaderCellDef md-sort-header> Weight </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.weight}} </md-cell>
+  </ng-container>
+
+  <ng-container mdColumnDef="symbol">
+    <md-header-cell *mdHeaderCellDef md-sort-header> Symbol </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.symbol}} </md-cell>
+  </ng-container>
+
+  <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+  <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+
+</md-table>
+
+<md-paginator #paginator [length]="data.length" [pageIndex]="0" [pageSize]="6" [pageSizeOptions]="[5, 6, 10, 25, 100]"></md-paginator>
