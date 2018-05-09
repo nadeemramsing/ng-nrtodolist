@@ -130,7 +130,7 @@ export class FormComponent implements OnInit, OnDestroy {
     this.isDoneSub = this.formGroup.get('isDone').valueChanges.subscribe(newValue => { this.isDone = newValue });
   }
 
-  /* ngOnDestroy(): Cleanup just before Angular destroys the directive/component. Unsubscribe observables and detach event handlers avoid memory leaks. */
+  /* ngOnDestroy(): Cleanup just before Angular destroys the directive/component. Unsubscribe observables and detach event handlers to avoid memory leaks. */
   ngOnDestroy(): void {
     this.activatedRouteSub.unsubscribe();
     this.currentTaskSub.unsubscribe();
