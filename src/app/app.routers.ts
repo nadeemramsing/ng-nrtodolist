@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
 
     //Using children
+    //WORKS
     { path: '', redirectTo: 'home/list', pathMatch: 'prefix' },
     {
         path: 'home', component: HomeComponent, children: [
@@ -20,15 +21,17 @@ export const routes: Routes = [
         ]
     },
 
-    /*
+    /* 
     //Using outlet 
+    //DOES NOT WORK
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: AppComponent },
     { path: 'list', component: ListComponent, outlet: "left" },
     { path: 'form', component: FormComponent, outlet: "left" },
-    { path: 'table', component: TableComponent, outlet: "left" } */
+    { path: 'table', component: TableComponent, outlet: "left" },
 
-    /* // otherwise redirect to home 
+    // otherwise redirect to home 
     { path: '**', redirectTo: '' } 
     */
+
 ]
