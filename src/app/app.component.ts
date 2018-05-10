@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedService } from './services/shared.service';
 
 @Component({
-  /* selector: 'app-root', */
+  selector: 'root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [SharedService]
