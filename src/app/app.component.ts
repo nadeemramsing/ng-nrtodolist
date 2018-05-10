@@ -5,20 +5,28 @@ import { SharedService } from './services/shared.service';
   selector: 'root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [SharedService]
+  providers:
+    //To be able to access providers (services included), we use {provide: 'tokenName', useClass: myService}
+    //Then in console, do: ng.probe($0).injector.get('tokenName'); shall return myService
+    [
+      {
+        provide: 'SharedService',
+        useClass: SharedService
+      }
+    ]
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav')
   sidenav: any;
-  
-  constructor() {}
-  
+
+  constructor() { }
+
   ngOnInit(): void {
-    
+
   }
 
-  test = function(value) {
-    debugger; 
+  test = function (value) {
+    debugger;
   }
 
 }
