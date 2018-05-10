@@ -14,6 +14,7 @@ import { SharedService } from './../../services/shared.service';
 export class DetailsComponent implements OnInit {
   @ViewChild(MdPaginator)
   paginator: MdPaginator;
+  
   @ViewChild(MdSort)
   sort: MdSort;
 
