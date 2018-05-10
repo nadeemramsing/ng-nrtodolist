@@ -11,9 +11,10 @@ export const routes: Routes = [
 
     //Using children
     //WORKS
-    { path: '', redirectTo: 'home/list', pathMatch: 'prefix' },
+    { path: '', redirectTo: 'home', pathMatch: 'prefix' },
     {
         path: 'home', component: HomeComponent, children: [
+            { path: '', redirectTo: 'list', pathMatch: 'full' }, //default child
             { path: 'list', component: ListComponent },
             { path: 'form', component: FormComponent },
             { path: 'details', component: DetailsComponent },
