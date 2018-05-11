@@ -23,7 +23,7 @@ export class DetailsComponent implements OnInit {
   length;
   dataSource;
 
-  constructor(@Inject('SharedService') private sharedService) {
+  constructor(@Inject(SharedService) private sharedService) {
     this.data = sharedService.getListSource();
 
     sharedService.list.subscribe(res => { this.length = res.length });

@@ -37,7 +37,7 @@ export class FormComponent implements OnInit, OnDestroy {
   private dateSub;
   private isDoneSub;
 
-  constructor(@Inject('SharedService') private sharedService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(@Inject(SharedService) private sharedService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
       title: '',
       description: '',

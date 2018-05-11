@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   protected listLength: number;
 
   //@Inject(<providerToken>)
-  constructor(@Inject('SharedService') private sharedService, private router: Router) {
+  constructor(@Inject(SharedService) private sharedService, private router: Router) {
     this.list = this.sharedService.list;
     this.list.subscribe(res => {
       this.listLength = res.length;
