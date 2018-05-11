@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
@@ -37,7 +37,7 @@ export class FormComponent implements OnInit, OnDestroy {
   private dateSub;
   private isDoneSub;
 
-  constructor(private sharedService: SharedService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(@Inject('SharedService') private sharedService, private router: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
       title: '',
       description: '',

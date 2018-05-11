@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { DataSource, CollectionViewer } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Rx';
 
@@ -14,7 +14,7 @@ import { SharedService } from './../../services/shared.service';
 export class DetailsComponent implements OnInit {
   @ViewChild(MdPaginator)
   paginator: MdPaginator;
-  
+
   @ViewChild(MdSort)
   sort: MdSort;
 
@@ -23,7 +23,7 @@ export class DetailsComponent implements OnInit {
   length;
   dataSource;
 
-  constructor(private sharedService: SharedService) {
+  constructor(@Inject('SharedService') private sharedService) {
     this.data = sharedService.getListSource();
 
     sharedService.list.subscribe(res => { this.length = res.length });

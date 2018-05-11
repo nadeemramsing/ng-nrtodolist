@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,8 @@ export class ListComponent implements OnInit {
   protected list: Observable<Array<any>>;
   protected listLength: number;
 
-  constructor(private sharedService: SharedService, private router: Router) {
+  //@Inject(<providerToken>)
+  constructor(@Inject('SharedService') private sharedService, private router: Router) {
     this.list = this.sharedService.list;
     this.list.subscribe(res => {
       this.listLength = res.length;
